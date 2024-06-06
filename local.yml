@@ -1,7 +1,13 @@
 - hosts: localhost
   become: true
   tasks:
-  - name: Install htop latest
+  - name: Kinji's toolkit
     ansible.builtin.dnf:
-      name: htop
+      name:
+        - screen
+        - htop
+        - mtr
+        - nmap
+        - nethack
       state: latest
+

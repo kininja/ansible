@@ -1,0 +1,7 @@
+- hosts: localhost
+  become: true
+  tasks:
+  - name: Install htop latest
+    ansible.builtin.dnf:
+      name: htop
+      state: latest

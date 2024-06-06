@@ -1,0 +1,18 @@
+---
+- name: Extract and transform user data
+  hosts: localhost
+  vars:
+    users:
+      - name: John Doe
+        email: john.doe@example.com
+        status: active
+      - name: Jane Smith
+        email: jane.smith@example.com
+        status: inactive
+        tasks:
+          - name: Get list of active user emails
+            set_fact:
+              active_emails: "{{ users | selectattr('status', 'equalto', 'active') | map(attribute='email') | list }}"
+          - debug:
+            msg: "Active user emails: {{ active_emails }}"
+

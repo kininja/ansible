@@ -1,0 +1,8 @@
+- name: Test debug printing
+  hosts: localhost
+  tasks:
+    - name: Run ls.sh and output "ls /"
+      script: ls.sh
+      register: out
+
+    - debug: var=out.stdout_lines
